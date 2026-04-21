@@ -173,7 +173,7 @@ export default function Footer() {
                   value={formData.query}
                   onChange={handleChange}
                   required
-                  rows="4"
+                  rows={4}
                   className="w-full bg-purple-900 bg-opacity-40 border border-purple-600 rounded px-4 py-2 text-white placeholder-gray-400 text-sm focus:outline-none focus:border-purple-400 resize-none"
                 ></textarea>
 
