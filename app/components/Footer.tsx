@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, ChangeEvent, FormEvent } from 'react'
 import { Phone, Mail, ArrowRight } from 'lucide-react'
 
 export default function Footer() {
@@ -11,7 +11,7 @@ export default function Footer() {
     query: ''
   })
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({
       ...prev,
@@ -19,7 +19,7 @@ export default function Footer() {
     }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     // Handle form submission here
     console.log('Form submitted:', formData)
