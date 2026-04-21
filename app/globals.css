@@ -1,26 +1,123 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0e27;
+  --foreground: #ffffff;
+  --accent-gold: #d4a574;
+  --accent-purple: #8b5cf6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-roboto);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-roboto), 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+/* Using Roboto for all text */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-roboto), 'Roboto', sans-serif;
+}
+
+/* Optional: Norican utility class for decorative elements */
+.font-norican {
+  font-family: var(--font-norican), 'Norican', cursive;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1e3f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4a574;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e8c4a0;
+}
+
+/* Button Styles */
+.btn-gold {
+  @apply px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold rounded transition-all duration-300 cursor-pointer;
+}
+
+.btn-outline-gold {
+  @apply px-6 py-3 border-2 border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white font-semibold rounded transition-all duration-300 cursor-pointer;
+}
+
+/* Section Styles */
+.section-padding {
+  @apply py-16 md:py-24 px-4 md:px-8;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4;
+}
+
+.section-subtitle {
+  @apply text-center text-gray-400 mb-12 max-w-3xl mx-auto;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s ease-out;
 }
